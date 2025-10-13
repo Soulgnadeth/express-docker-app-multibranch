@@ -164,11 +164,11 @@ pipeline {
                 """
             }
             // ส่งข้อมูลไปยัง n8n webhook เมื่อ deploy สำเร็จ
-            post {
-                success {
-                    sendNotificationToN8n('deployed', 'Deploy Local')
-                }
-            }
+            // post {
+            //     success {
+            //         sendNotificationToN8n('deployed', 'Deploy Local')
+            //     }
+            // }
         }
     }
 
