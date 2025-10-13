@@ -163,12 +163,12 @@ pipeline {
                     docker ps --filter name=${APP_NAME} --format "table {{.Names}}\\t{{.Image}}\\t{{.Status}}"
                 """
             }
-            // ส่งข้อมูลไปยัง n8n webhook เมื่อ deploy สำเร็จ
-            // post {
-            //     success {
-            //         sendNotificationToN8n('deployed', 'Deploy Local')
-            //     }
-            // }
+            ส่งข้อมูลไปยัง n8n webhook เมื่อ deploy สำเร็จ
+            post {
+                success {
+                    sendNotificationToN8n('deployed', 'Deploy Local')
+                }
+            }
         }
     }
 
