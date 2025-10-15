@@ -86,14 +86,10 @@ pipeline {
         // ถ้ามี package-lock.json ให้ใช้ npm ci แทน npm install จะเร็วและล็อกเวอร์ชันชัดเจนกว่า
         stage('Install & Test') {
             steps {
-                script {
-                    docker.image('node:22-alpine').inside {
-                        sh '''
-                            if [ -f package-lock.json ]; then npm ci; else npm install; fi
-                            npm test
-                        '''
-                    }
-                }
+                sh '''
+                    if [ -f package-lock.json ]; then npm ci; else npm install; fi
+                    npm test
+                '''
             }
         }
 
@@ -176,7 +172,7 @@ pipeline {
         }
     }
 
-    // กำหนด post actions
+   // กำหนด post actions
     // เช่น การแจ้งเตือนเมื่อ pipeline เสร็จสิ้น
     // สามารถเพิ่มการแจ้งเตือนผ่าน email, Slack, หรืออื่นๆ ได้ตามต้องการ
    post {
