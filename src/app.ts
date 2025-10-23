@@ -46,6 +46,7 @@ app.get('/api/products', (_: Request, res: Response) => {
     { id: 3, name: 'Product C', price: 49.99 },
     { id: 4, name: 'Product D', price: 59.99 },
     { id: 5, name: 'Product E', price: 69.99 },
+    { id: 6, name: 'Product E', price: 89.99 },
   ]
   res.json(products)
 })
